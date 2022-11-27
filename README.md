@@ -5,6 +5,16 @@ Alerts Plus
 
 A PHP package for incorporating highly configurable alert system into your application.
 
+* Framework or vanilla PHP environments
+* No database requirements
+* Extendable
+* Injection of HTML elements from any source
+* Structured for HTML and configuration Separation of Concerns (SoC)
+* Custom configuration values can be processed for each alert (i.e. access control)
+* Alerts can be prioritized
+* Optional message can be provided for each alert
+
+
 ![Example alerts.](https://github.com/deloachtech/alerts-plus/blob/main/example/alerts.png)
 
 
