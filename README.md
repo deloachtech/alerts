@@ -33,7 +33,7 @@ Usage
 
 ### Setup
 
-Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list. See the [example](https://github.com/deloachtech/alerts-plus/blob/main/example/FormHTML.php) for more information.
+Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list. See the [example](https://github.com/deloachtech/alerts-plus/blob/main/example/AlertsHTML.php) for more information.
 
 
 ```php
