@@ -5,7 +5,7 @@ Alerts Plus
 
 A PHP package for incorporating highly configurable alert system into your application.
 
-![Example alerts.](example/alerts.png)
+![Example alerts.](https://github.com/deloachtech/alerts-plus/blob/main/example/alerts.png)
 
 
 Installation
