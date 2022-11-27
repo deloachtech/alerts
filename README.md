@@ -81,8 +81,6 @@ return [
 ];
 ```
 
-> E
-
 
 ### Creating Alerts
 
