@@ -29,7 +29,7 @@ composer require aarondeloach/alerts-plus
 Usage
 -----
 
-> Examples are provided using simple procedural logic. The package can be incorporated into any framework or architectural pattern.
+> The sample code provided uses simple procedural logic. The package can be incorporated into any framework or architectural pattern.
 
 ### Setup
 
