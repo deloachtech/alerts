@@ -110,6 +110,8 @@ return [
 
 Create a class for each alert that implements the `AlertInterface` and its methods. Activate the alert in the configuration that's passed to the manager.
 
+> If you're upgrading from the `deloachtech/alerts` package you can use your existing alerts. Simply change the referenced `DeLoachTech\Alerts\AlertInterface` to the new `DeLoachTech\AlertsPlus\AlertInterface` and implement the two new methods.
+
 ```php
 // App\AccountInfoRequiredAlert.php
 
@@ -147,6 +149,6 @@ If you've upgraded form the `deloachtech/alerts` package, here are some changes 
 2. Use your existing alert manager by moving the alertsHTML() method to the HTML class you created above.
 3. Use your existing configuration by adding an array to the existing keys as needed for processing extra values.
 4. Replace any `use DeLoachTech\Alerts\...` with `use DeLoachTech\AlertsPlus\...`
-5. Add the new alert HTML class you created to any existing `->getAlerts()` method calls (i.e. `->getAlerts(new MyNewAlertHTMLClass()`).
+5. Add the new alert HTML class you created to any existing `->getAlerts()` method calls (i.e. `->getAlerts(new MyNewAlertHTMLClass())`).
 
 
