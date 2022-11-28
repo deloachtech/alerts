@@ -18,13 +18,15 @@ A PHP package for incorporating highly configurable alert system into your appli
 Installation
 ------------
 
-If you haven't already done so, store your customer number and access token in the global composer auth.json.
+If you haven't already done so:
+
+* Store your customer number and access token in the global composer auth.json.
 
 ```bash
 composer config --global --auth http-basic.deloachtech.repo.packagist.com your-customer-number your-access-token
 ```
 
-Add your customer number to the projects `composer.json` file.
+* Add the main repository and your customer number to the projects `composer.json` file.
 
 ```json
 "repositories": [
