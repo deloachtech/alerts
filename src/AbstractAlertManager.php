@@ -24,9 +24,7 @@ abstract class AbstractAlertManager
 
     /**
      * Return an optional array of resources passed to each alert
-     * (i.e. Database). This method should be a protected function to
-     * limit scope to the manager.
-     * Tip: Pass resources from your AlertManager class constructor.
+     * (i.e. Database).
      * @return array
      */
     abstract protected function resources(): ?array;
@@ -36,14 +34,11 @@ abstract class AbstractAlertManager
      * Return an array alert of configurations, where the keys are the
      * FQCN of the AlertInterface class and the values are an array of
      * optional settings passed back to your alert manager class for
-     * your use.
+     * your evaluation.
      * [
-     *   App\Alerts\FooAlert => [],
+     *   App\Alerts\FooAlert,
      *   App\Alerts\BarAlert => [ role => SuperUser ],
      * ]
-     * This method should be a protected function to limit scope
-     * to the manager.
-     * Tip: Create a config.php file and return its content.
      * @return array
      */
     abstract protected function config(): array;
