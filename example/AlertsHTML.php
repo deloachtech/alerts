@@ -12,7 +12,7 @@ class AlertsHTML implements AlertsHTMLInterface
     {
         $count = count($alerts);
 
-        $indicator = $count > 0 ? ' <span class="alert-indicator">' . $count . '</span>' : "";
+        $indicator = $count > 0 ? ' <span class="alert-indicator">' . $count . '</span>' : " ";
 
         $list = '';
         foreach ($alerts as $alert) {
