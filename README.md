@@ -1,8 +1,6 @@
 Alerts Plus
 ===========
 
-`v1.0.0-beta.0`
-
 A PHP package for incorporating highly configurable alert system into your application.
 
 * Framework or vanilla PHP environments
