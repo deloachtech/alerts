@@ -134,7 +134,7 @@ Somewhere in you HTML layer:
 
 namespace App;
 
-use App\Template\AlertHTML;
+use App\Templates\AlertHTML;
 
 // ...
 
