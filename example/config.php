@@ -17,6 +17,7 @@ return [
     'DeLoachTech\AlertsPlus\ExampleAlert',
 
     'App\MyAlert' => [
+        // Provide anything you want to evaluate in the alert.
         'role' => 'SuperUser'
     ]
 ];

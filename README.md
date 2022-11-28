@@ -96,7 +96,7 @@ return [
     // ...
     'App\FooBarAlert',
     'App\AccountInfoRequiredAlert' => [
-         // Provide anything you want to validate/process in the alert.
+         // Provide anything you want to evaluate in the alert.
         'role' => 'SuperUser'
     ]
     // ...
