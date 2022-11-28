@@ -52,7 +52,7 @@ Usage
 Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list. It should live with your HTML templates for SoC.
 
 ```php
-// App\AlertHTML.php
+// App\Templates\AlertHTML.php
 
 use DeLoachTech\AlertsPlus\AlertsHTMLInterface;
 
@@ -133,6 +133,8 @@ Somewhere in you HTML layer:
 // dashboard.php
 
 namespace App;
+
+use App\Template\AlertHTML;
 
 // ...
 
