@@ -25,11 +25,11 @@ interface AlertInterface
 
     /**
      * The method arrays are provided by the AbstractAlertManager
-     * config() and resources() methods.
-     * @param array $config
+     * alertsArray() and resources() methods.
+     * @param array $extra Values you've assigned to the alert in the configuration.
      * @param array $resources
      */
-    public function initialize(array $config, array $resources);
+    public function initialize(array $extra, array $resources);
 
 
     /**

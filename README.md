@@ -17,9 +17,25 @@ A PHP package for incorporating highly configurable alert system into your appli
 
 ![Example alerts.](example/alerts.png)
 
-
 Installation
 ------------
+
+If you haven't already done so, store your customer number and access token in the global composer auth.json.
+
+```bash
+composer config --global --auth http-basic.deloachtech.repo.packagist.com your-customer-number your-access-token
+```
+
+Add your customer number to the projects `composer.json` file.
+
+```json
+"repositories": [
+    {"type": "composer", "url": "https://deloachtech.repo.packagist.com/your-customer-number/"}
+]
+```
+
+If your customer account has access to this package, continue with the installation.
+
 
 ```bash
 composer require aarondeloach/alerts-plus
@@ -33,7 +49,7 @@ Usage
 
 ### Setup
 
-Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list. See the [example](https://github.com/deloachtech/alerts-plus/blob/main/example/AlertsHTML.php) for more information.
+Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list.
 
 
 ```php
@@ -47,12 +63,12 @@ class AlertsHTML extends AlertsHTMLInterface
 }
 ```
 
+> You can use the [example](https://github.com/deloachtech/alerts-plus/blob/main/example/AlertsHTML.php) provided to get started.
+
 
 ### Managing Alerts
 
-1. Create a [class for managing alerts](https://github.com/deloachtech/alerts-plus/blob/main/example/AlertManager.php) that extends the `AbstractAlertManager` and implement its methods.
-2. Create an array of [alert configurations](https://github.com/deloachtech/alerts-plus/blob/main/example/config.php) to provide the manager.
-
+Create a class for managing alerts that extends the `AbstractAlertManager` and implement its methods.
 
 ```php
 // App\AlertManager.php
@@ -66,6 +82,8 @@ class AlertManager extends AbstractAlertManager
     // Implement the interface methods ...
 }
 ```
+
+Create a configuration of alerts to provide the alert manager. The array keys are the FQCN of the alert class. The array values are any data you want passed back to the alert for processing.
 
 ```php
 // config\alerts.php
@@ -81,10 +99,12 @@ return [
 ];
 ```
 
+> You can use the [examples](https://github.com/deloachtech/alerts-plus/tree/main/example) provided to get started.
+
 
 ### Creating Alerts
 
-Create a class for each alert that implements the `AlertInterface` and its methods. Activate the alert in the [configuration](https://github.com/deloachtech/alerts-plus/blob/main/example/config.php) that's passed to the manager.
+Create a class for each alert that implements the `AlertInterface` and its methods. Activate the alert in the configuration that's passed to the manager.
 
 ```php
 // App\AccountInfoRequiredAlert.php
@@ -113,3 +133,17 @@ namespace App;
 
 echo (new AlertManager())->getAlerts(new AlertHTML());
 ```
+
+Upgrading from a previous version
+---------------------------------
+
+If you've upgraded form the `deloachtech/alerts` package, here are some changes to make for a quick start.
+
+1. Remove the `deloachtech/alerts` package.
+2. Copy the HTML methods in the form class you created in the previous package for use in the new HTML class you created.
+3. Remove the form class you created in the previous package. (You'll be using this packaged version.)
+4. Replace any `use ....\(YourPreviousFormClass)` with `use DeLoachTech\AlertsPlus\Alert`
+5. Replace any `use DeLoachTech\Alerts\...` with `use DeLoachTech\AlertsPlus\...`
+6. Add the new alert HTML class you created to any existing `->getAlerts()` method calls (i.e. `->getAlerts(new MyNewAlertHTMLClass()`).
+
+

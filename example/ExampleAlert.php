@@ -3,15 +3,15 @@
 namespace DeLoachTech\AlertsPlus;
 
 
-class Alert implements AlertInterface
+class ExampleAlert implements AlertInterface
 {
 
-    private $config;
+    private $extra;
     private $resources;
 
-    public function initialize(array $config, array $resources)
+    public function initialize(array $extra, array $resources)
     {
-        $this->config = $config;
+        $this->extra = $extra;
         $this->resources = $resources;
     }
 

@@ -29,7 +29,7 @@ abstract class AbstractAlertManager
      * Tip: Pass resources from your AlertManager class constructor.
      * @return array
      */
-    abstract protected function resources():? array;
+    abstract protected function resources(): ?array;
 
 
     /**
@@ -50,41 +50,41 @@ abstract class AbstractAlertManager
 
 
     /**
-     * Returns te alerts in HTML format.
+     * Returns the alerts in HTML.
+     * @param AlertsHTMLInterface $alertsHTML
      * @return string
      */
     public function getAlerts(AlertsHTMLInterface $alertsHTML): string
     {
-        return $alertsHTML->getHTML(['alerts' => $this->alertsArray()]);
+        return $alertsHTML->getHTML($this->alertsArray());
     }
 
 
     /**
      * Returns an array of applicable alerts sorted by priority.
      * Use this method for creating different HTML output methods.
-     * [0=href, 1=title, 2=message, 3=priority]
-     * @return array
+     * @return array = [[href, title, message, priority],...]
      */
     protected function alertsArray(): array
     {
         $alerts = [];
-        foreach ($this->config() as $fqcn => $array) {
+        foreach ($this->config() as $fqcn => $extra) {
             if (class_exists($fqcn)) {
                 $class = new $fqcn();
-                $class->initialize($array, $this->resources() ?? []);
+                $class->initialize($extra, $this->resources() ?? []);
                 if ($class->isApplicable()) {
                     $alerts[] = [
-                        $class->href(),
-                        $class->title(),
-                        $class->message(),
-                        $class->priority() ?? 0
+                        'href' => $class->href(),
+                        'title' => $class->title(),
+                        'message' => $class->message(),
+                        'priority' => $class->priority() ?? 0
                     ];
                 }
             }
         }
         if ($alerts) {
             uasort($alerts, function ($a, $b) {
-                return $b[3] <=> $a[3];
+                return $b['priority'] <=> $a['priority'];
             });
         }
         return $alerts;

@@ -23,10 +23,10 @@ interface AlertsHTMLInterface
 {
 
     /**
-     * Return the HTML to render. (Use $attr[values] as needed.)
-     * $attr[alerts] = [0=href, 1=title, 2=message, 3=priority]
-     * @param array $attr = [alerts]
+     * Return the HTML to render. Use the array attributes as needed.
+     * Provides an array of applicable alerts with attributes.
+     * @param array $alerts = [ [href, title, message, priority], ... ]
      * @return string
      */
-    public function getHTML(array $attr): ?string;
+    public function getHTML(array $alerts): ?string;
 }
