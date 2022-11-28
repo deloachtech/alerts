@@ -14,7 +14,7 @@
 
 return [
 
-    'DeLoachTech\AlertsPlus\Alert' => [],
+    'DeLoachTech\AlertsPlus\ExampleAlert',
 
     'App\MyAlert' => [
         'role' => 'SuperUser'

@@ -68,7 +68,17 @@ abstract class AbstractAlertManager
     protected function alertsArray(): array
     {
         $alerts = [];
-        foreach ($this->config() as $fqcn => $extra) {
+
+        foreach ($this->config() as $k => $v) {
+
+            if (is_array($v)) {
+                $fqcn = $k;
+                $extra = $v;
+            } else {
+                $fqcn = $v;
+                $extra = [];
+            }
+
             if (class_exists($fqcn)) {
                 $class = new $fqcn();
                 $class->initialize($extra, $this->resources() ?? []);

@@ -70,6 +70,8 @@ class AlertsHTML extends AlertsHTMLInterface
 
 Create a class for managing alerts that extends the `AbstractAlertManager` and implement its methods.
 
+> If you're upgrading from the `deloachtech/alerts` package you can use your existing manager. Simply move the alertsHTML() method to the HTML class you created above.
+
 ```php
 // App\AlertManager.php
 
@@ -85,12 +87,14 @@ class AlertManager extends AbstractAlertManager
 
 Create a configuration of alerts to provide the alert manager. The array keys are the FQCN of the alert class. The array values are any data you want passed back to the alert for processing.
 
+> If you're upgrading from the `deloachtech/alerts` package you can use your existing configuration. Simply add an array to the existing keys as needed for processing extra values.
+
 ```php
 // config\alerts.php
 
 return [
     // ...
-    'App\FooBarAlert' => [],
+    'App\FooBarAlert',
     'App\AccountInfoRequiredAlert' => [
          // Provide anything you want to validate/process in the alert.
         'role' => 'SuperUser'
@@ -140,10 +144,9 @@ Upgrading from a previous version
 If you've upgraded form the `deloachtech/alerts` package, here are some changes to make for a quick start.
 
 1. Remove the `deloachtech/alerts` package.
-2. Copy the HTML methods in the form class you created in the previous package for use in the new HTML class you created.
-3. Remove the form class you created in the previous package. (You'll be using this packaged version.)
-4. Replace any `use ....\(YourPreviousFormClass)` with `use DeLoachTech\AlertsPlus\Alert`
-5. Replace any `use DeLoachTech\Alerts\...` with `use DeLoachTech\AlertsPlus\...`
-6. Add the new alert HTML class you created to any existing `->getAlerts()` method calls (i.e. `->getAlerts(new MyNewAlertHTMLClass()`).
+2. Use your existing alert manager by moving the alertsHTML() method to the HTML class you created above.
+3. Use your existing configuration by adding an array to the existing keys as needed for processing extra values.
+4. Replace any `use DeLoachTech\Alerts\...` with `use DeLoachTech\AlertsPlus\...`
+5. Add the new alert HTML class you created to any existing `->getAlerts()` method calls (i.e. `->getAlerts(new MyNewAlertHTMLClass()`).
 
 
