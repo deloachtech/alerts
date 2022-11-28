@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the aarondeloach/alerts-plus package.
+ * This file is part of the deloachtech/alerts-plus package.
  *
  * Copyright (c) DeLoach Tech
  * https://deloachtech.com
