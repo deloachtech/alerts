@@ -49,7 +49,7 @@ Usage
 
 ### Setup
 
-Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the HTML used to generate the alerts list. It should live with your HTML templates for SoC.
+Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the project-specific HTML for outputting the alerts list. It should live with your HTML templates for SoC.
 
 ```php
 // App\Templates\AlertHTML.php
