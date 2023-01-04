@@ -1,6 +1,6 @@
 <?php
 
-namespace DeLoachTech\AlertsPlus;
+namespace DeLoachTech\Alerts;
 
 class AlertsHTML implements AlertsHTMLInterface
 {

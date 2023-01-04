@@ -1,7 +1,7 @@
-Alerts Plus
-===========
+Alerts
+======
 
-A PHP package for incorporating highly configurable alert system into your application.
+A user alert system for web apps.
 
 * Framework or vanilla PHP environments
 * No database requirements
@@ -18,27 +18,9 @@ A PHP package for incorporating highly configurable alert system into your appli
 Installation
 ------------
 
-If you haven't already done so:
-
-* Store your customer number and access token in the global composer auth.json.
 
 ```bash
-composer config --global --auth http-basic.deloachtech.repo.packagist.com your-customer-number your-access-token
-```
-
-* Add the main repository and your customer number to the projects `composer.json` file.
-
-```json
-"repositories": [
-    {"type": "composer", "url": "https://deloachtech.repo.packagist.com/your-customer-number/"}
-]
-```
-
-If your customer account has access to this package, continue with the installation.
-
-
-```bash
-composer require aarondeloach/alerts-plus
+composer require deloachtech/alerts
 ```
 
 
@@ -54,7 +36,7 @@ Create an alert HTML class that extends the `AlertHTMLInterface` and implements 
 ```php
 // App\Templates\AlertHTML.php
 
-use DeLoachTech\AlertsPlus\AlertsHTMLInterface;
+use DeLoachTech\Alerts\AlertsHTMLInterface;
 
 class AlertsHTML extends AlertsHTMLInterface
 {
@@ -62,7 +44,7 @@ class AlertsHTML extends AlertsHTMLInterface
 }
 ```
 
-> You can use the [example](https://github.com/deloachtech/alerts-plus/blob/main/example/AlertsHTML.php) provided to get started.
+> You can use the [example](https://github.com/deloachtech/alerts/blob/main/example/AlertsHTML.php) provided to get started.
 
 
 ### Managing Alerts
@@ -75,7 +57,7 @@ Create a class for managing alerts that extends the `AbstractAlertManager` and i
 
 namespace App;
 
-use DeLoachTech\AlertsPlus\AbstractAlertManager;
+use DeLoachTech\Alerts\AbstractAlertManager;
 
 class AlertManager extends AbstractAlertManager
 {
@@ -99,7 +81,7 @@ return [
 ];
 ```
 
-> You can use the [examples](https://github.com/deloachtech/alerts-plus/tree/main/example) provided to get started.
+> You can use the [examples](https://github.com/deloachtech/alerts/tree/main/example) provided to get started.
 
 
 ### Creating Alerts
@@ -108,11 +90,11 @@ Create a class for each alert that implements the `AlertInterface` and its metho
 
 
 ```php
-// App\AccountInfoRequiredAlert.php
+// App\Alerts\AccountInfoRequiredAlert.php
 
 namespace App;
 
-use DeLoachTech\AlertsPlus\AlertInterface;
+use DeLoachTech\Alerts\AlertInterface;
 
 class AccountInfoRequiredAlert extends AlertInterface
 {
@@ -126,7 +108,7 @@ class AccountInfoRequiredAlert extends AlertInterface
 Somewhere in you HTML layer:
 
 ```php
-// dashboard.php
+// navbar.php
 
 namespace App;
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DeLoachTech\AlertsPlus;
+namespace DeLoachTech\Alerts;
 
 class AlertManager extends AbstractAlertManager
 {

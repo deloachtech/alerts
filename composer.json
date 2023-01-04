@@ -1,14 +1,14 @@
 {
-  "name": "deloachtech/alerts-plus",
-  "description": "A PHP package for incorporating highly configurable alert system into your application.",
+  "name": "deloachtech/alerts",
+  "description": "A user alert system for web apps.",
   "type": "library",
-  "license": "proprietary",
+  "license": "MIT",
   "require": {
     "php": ">=7.3.0"
   },
   "autoload": {
     "psr-4": {
-      "DeLoachTech\\AlertsPlus\\": "src/"
+      "DeLoachTech\\Alerts\\": "src/"
     }
   }
 }
