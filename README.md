@@ -29,9 +29,9 @@ Usage
 
 > The sample code provided uses simple procedural logic. The package can be incorporated into any framework or architectural pattern.
 
-### Setup
+### HTML
 
-Create an alert HTML class that extends the `AlertHTMLInterface` and implements its methods. This class will provide the project-specific HTML for outputting the alerts list. It should live with your HTML templates for SoC.
+Create a class to provide the HTML template that extends the `AlertHTMLInterface`. This class should live with the templates for SoC.
 
 ```php
 // App\Templates\AlertHTML.php
@@ -47,9 +47,9 @@ class AlertsHTML extends AlertsHTMLInterface
 > You can use the [example](https://github.com/deloachtech/alerts/blob/main/example/AlertsHTML.php) provided to get started.
 
 
-### Managing Alerts
+### Manager
 
-Create a class for managing alerts that extends the `AbstractAlertManager` and implement its methods.
+Create a class for managing alerts and resources that extends the `AbstractAlertManager`. Use this class to pass other objects to the actual alert interface (i.e. Database).
 
 
 ```php
@@ -65,7 +65,9 @@ class AlertManager extends AbstractAlertManager
 }
 ```
 
-Create a configuration of alerts to provide the alert manager. The array keys are the FQCN of the alert class. The array values are any data you want passed back to the alert for processing.
+### Configuration
+
+Create a configuration of alerts to provide the alert manager. The array keys are the FQCN of the alert class. The array values are any extra data you want passed back to the alert for processing.
 
 ```php
 // config\alerts.php
